@@ -1,0 +1,32 @@
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <%if (isAuthenticated){ %>
+        <li class="nav-item">
+          <a class="nav-link" href="/revenue">Revenue</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        
+      </ul>
+      <span class="navbar-text">
+        
+       <form action="/logout" method="post">
+         <button type="submit">logout</button>
+       </form>
+       <% }else{%>
+       <a class="nav-link" href="/login">Login</a>
+       <a class="nav-link" href="/signUp">signUp</a>
+
+      
+      <% }%>
+
+      </span>
+    </div>
+  </nav>

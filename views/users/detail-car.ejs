@@ -1,0 +1,79 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/nav.ejs') %>
+<style>
+    .card-img-top{
+        height: 200px;
+        width: 200px;
+    }
+</style>
+
+<div class="conatiner">
+    <div class="row d-flex justify-content-center">
+        <div class="col-sm-4">
+            
+            <div class="card-deck  ">
+                <div class="card">
+                  <img class="card-img-top" src="<%= car.image%>" alt="<%= car.image%>">
+                  <div class="card-body">
+                    <h5 class="card-title">Immatriculation : <%= car.immatriculation %></h5>
+                    <h5 class="card-title">model : <%= car.model%></h5>
+                    <h5 class="card-title">brand: <%= car.brand%></h5>
+                    <h5 class="card-title">chasis: <%= car.chasis%></h5>
+
+                    <h5 class="card-title">status :  <%= car.status%></h5>
+                    <h5><a href="/displayDocumentCar/<%=car._id%>">Documents:</a></h5>
+                    <h5><a href="/single-revenue/<%=car._id%>">Revenue:</a></h5>
+
+                    <h5 class="card-title">drivers: 
+                    <ul>
+                        <% car.drivers.forEach(d => { %> 
+                            <li>
+                                <a href="/detail-driver/<%= d._id%>">
+                                <%= d.fname%> <%= d.lname%>
+                               </a><span>
+                                <form action="/remove-driver/<%= d._id%>" method="post">
+                                    <input  type="hidden" value="<%= car._id%>" name="carId">
+                                    <button class="fas fa-minus-circle" type="submit"></button>
+                                 </form>
+                               </span>
+                             
+                            </li>
+                            
+                        <% }) %>  
+                        
+                    <small>
+                        <form action="/assign-driver" method="post">
+                        <input  type="hidden" value="<%= car._id%>" name="carId">
+                        <select name="driverId" id="">
+                            <option value="">select driver</option>
+                            <% for( let d of drivers){ %> 
+
+                            <option value="<%= d._id%>"><%= d.fname%> <%= d.lname%></option>
+                            <% } %> 
+                        </select>
+                        <button class="fas fa-user-plus" type="submit" ></button>
+                        <%if(errorMessage){%>
+                            <p class="text-danger"><%= errorMessage %></p>
+                        <%}%>
+                        
+                        
+                    </form>
+                </small>
+                    </ui> 
+                    </h5>
+
+                    
+                    
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  </div>
+            </div>
+           
+
+        </div>
+        
+    </div>
+</div>
+
+
+
+<%- include('../includes/end.ejs') %>

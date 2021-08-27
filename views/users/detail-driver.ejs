@@ -1,0 +1,41 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/nav.ejs') %>
+<style>
+    .card-img-top{
+        height: 200px;
+        width: 200px;
+    }
+</style>
+
+<div class="conatiner">
+    <div class="row d-flex justify-content-center">
+        <div class="col-sm-4">
+            
+            <div class="card-deck  ">
+                <div class="card">
+                  <img class="card-img-top" src="<%= driver.profile%>" alt="<%= driver.profile%>">
+                  <div class="card-body">
+                    <h5 class="card-title">fname : <%= driver.fname%></h5>
+                    <h5 class="card-title">lname : <%=driver.lname%></h5>
+                    <h5 class="card-title">contact: <%=driver.contact%></h5>
+                    
+
+                    <h5 class="card-title">salary : <%= driver.salary%>XFA</h5>
+                    <h5 class="card-title"> <a href="/displayDocumentDriver/<%=driver._id%>">Documents</a></h5>
+
+                    
+                    
+                    
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  </div>
+            </div>
+           
+
+        </div>
+        
+    </div>
+</div>
+
+
+
+<%- include('../includes/end.ejs') %>

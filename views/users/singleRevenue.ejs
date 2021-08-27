@@ -1,0 +1,40 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/nav.ejs') %>
+    <br>
+<div class="container-fluid">
+    <h2>Revenue : <%= carId%></h2><br>
+     <%if(revenues.length<1){%>    
+       <h3>No revenue</h3>
+      <%}else{%>
+    
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th>date</th>
+              
+              <th>Driver</th>
+              <th>Amout In </th>
+              <th>Failure</th>
+              <th>Failure Cost</th>
+              <th>Total Revenue</th>
+    
+            </tr>
+          </thead>
+          <tbody>
+              <% for(let r of revenues){%>
+            <tr>
+              <td><%=r.date.toLocaleDateString()%></td>
+             
+              <td><%=r.driver.fname%> <%=r.driver.lname%></td>
+              <td><%=r.amount%></td>
+              <td class="text-danger"><%=r.failureDescription%></td>
+              <td class="text-danger"><%=r.failureAmount%></td>
+              <td ><%=r.total%></td>
+    
+            </tr>
+            <%}%>
+          </tbody>
+        </table>  
+  <%}%>
+<div>
+<%- include('../includes/end.ejs') %>

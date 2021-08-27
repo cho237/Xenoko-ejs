@@ -1,0 +1,54 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/nav.ejs') %>
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-6">
+            <div class="container">
+                <h1>Enter Revenue</h1> <p><%= carId%></p> <br>
+                
+                <form action="/enterRevenue" method="POST">
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" class="form-control" id="date" placeholder="date" name="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="amount" class="">amount</label>
+                        <input type="text" class="form-control " id="amount" placeholder="amount" name="amount">
+                    </div>
+                    <div class="form-group">
+                        <label for="driver">Driver:</label>
+                        <select class="form-control" id="driver" name="driver">
+                          <% for( let d of car.drivers){ %> 
+                          <option value="<%= d._id%>"><%= d.fname%> <%= d.lname%></option>
+                          <% } %> 
+                          
+                        </select>
+                      </div>
+                    <div class="form-group">
+                        <label for="failureDescription">failureDescription</label>
+                        <input type="text" class="form-control" id="failureDescription" placeholder="failureDescription" name="failureDescription">
+                    </div>
+                    <div class="form-group">
+                        <label for="failureAmount">failureAmount</label>
+                        <input type="number" class="form-control" id="failureAmount" placeholder="failureAmount" name="failureAmount">
+                    </div>
+                    
+
+                    <input type="hidden" value="<%= carId%>" name="carId">
+
+    
+                    <button class="btn btn-success" type="submit">Add </button>
+
+                </form>
+               
+            </div>
+    </div>
+    </div>
+</div>
+
+
+
+<%- include('../includes/end.ejs') %>

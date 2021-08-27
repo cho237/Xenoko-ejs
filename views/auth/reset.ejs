@@ -1,0 +1,39 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/nav.ejs') %>
+<style>
+body{
+    background-color: rgb(182, 177, 177)
+}
+</style>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-4">
+            <div class="container">
+
+                
+               
+                <h1>Reset Password</h1><br><br>
+                <form action="/reset" method="POST">
+
+                    <div class="form-group">
+                        <label for="email">email</label>
+                        <input type="text" class="form-control" id="email" placeholder="email" name="email">
+                    </div>
+                    
+                    <%if(errorMessage){%>
+                        <h5 class="text-danger"><%= errorMessage %></h5>
+                    <%}%>
+                    
+                    <button class="btn btn-success" type="submit">Reset password</button>
+
+                </form>
+               
+               
+            </div>
+    </div>
+    </div>
+</div>
+
+<%- include('../includes/end.ejs') %>

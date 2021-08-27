@@ -1,0 +1,43 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/nav.ejs') %>
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-6">
+            <div class="container">
+                <h1>Add Document </h1><br>
+                
+                <form action="/add-documentDriver" method="POST">
+
+                    <div class="form-group">
+                        <label for="name">name</label>
+                        <input type="text" class="form-control" id="name" placeholder="name" name="name">
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                          <input type="text" class="form-control" placeholder="frontImage" name="frontImage">
+                        </div>
+                        <div class="col">
+                          <input type="text" class="form-control" placeholder="backImage" name="backImage">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiry">expiry</label>
+                        <input type="date" class="form-control" id="expiry" placeholder="expiry" name="expiry">
+                    </div>
+                    <input type="hidden" name="driverId" value="<%=driverId%>">
+
+                    <button class="btn btn-success" type="submit">Add </button>
+
+                </form>
+               
+            </div>
+    </div>
+    </div>
+</div>
+
+
+
+<%- include('../includes/end.ejs') %>

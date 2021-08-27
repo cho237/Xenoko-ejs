@@ -1,0 +1,28 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/nav.ejs') %>
+<%if(documents.length<1){%>
+<h2>no document</h2>
+ <%}else{%> 
+
+ <%for(let d of documents){%>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3><%= d.name%></h3>
+                 <h5 class="text-danger">Expiry:<%= d.expiry%></h5>
+                 <h5>front:
+                      <a href="<%= d.frontImage%>">f</a>
+                    </h5>
+                 <h5>back:
+                     <a href="<%= d.backImage%>">b</a>
+                      
+                    
+                </h5>
+            </div>
+        </div>
+    </div>
+    <%}%>
+
+ <%}%>  
+
+<%- include('../includes/end.ejs') %>
